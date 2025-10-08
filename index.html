@@ -18,6 +18,34 @@
       overflow: hidden;
     }
 
+    /* بک‌گراند مخصوص موبایل */
+    @media (max-width: 768px) {
+      body {
+        background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center fixed;
+        background-size: cover;
+      }
+
+      .menu-card {
+        top: 20px;
+        right: 20px;
+        padding: 20px;
+        max-width: 90%;
+      }
+
+      .menu-card h1 {
+        font-size: 1.5em;
+      }
+
+      .menu-card h2 {
+        font-size: 1em;
+      }
+
+      .button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
+    }
+
     .menu-card {
       position: absolute;
       top: 40px;
