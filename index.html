@@ -9,27 +9,34 @@
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Vazir', 'Playfair Display', Tahoma, sans-serif;
-      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/background.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background-image: url('background.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% auto; /* مقیاس‌پذیر با عرض صفحه */
+      background-attachment: scroll;
       height: 100vh;
       overflow: hidden;
+      color: #fff;
     }
 
     .menu-overlay {
       position: absolute;
-      top: 5px;
-      right: 300px; /* فاصله بیشتر از سمت راست */
+      top: 80px;
+      right: 100px;
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-radius: 16px;
-      padding: 5px 20px;
+      padding: 30px 40px;
       border: 1px solid rgba(212, 175, 55, 0.5);
       text-align: center;
-      color: #fff;
       max-width: 320px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       z-index: 10;
@@ -39,7 +46,6 @@
       font-size: 2em;
       margin-bottom: 10px;
       font-family: 'Vazir', serif;
-      color: #fff;
       text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
     }
 
@@ -73,9 +79,43 @@
     #message {
       margin-top: 20px;
       font-size: 1em;
-      color: #fff;
       opacity: 0;
       transition: opacity 0.5s ease;
+    }
+
+    /* حالت موبایل */
+    @media (max-width: 768px) {
+      body {
+        background-image: url('background2.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: scroll;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .menu-overlay {
+        position: static;
+        margin: auto;
+        padding: 20px;
+        max-width: 90%;
+        border-radius: 12px;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+      }
+
+      .menu-overlay h1 {
+        font-size: 1.6em;
+      }
+
+      .menu-overlay h2 {
+        font-size: 1em;
+      }
+
+      .button {
+        font-size: 0.9em;
+        padding: 10px 16px;
+      }
     }
   </style>
 </head>
@@ -84,10 +124,10 @@
   <div class="menu-overlay">
     <h1>منوی رستوران</h1>
     <h2>Restaurant Menu</h2>
-    <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
-    <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" target="_blank">نمایش</a>
-    <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
-    <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" target="_blank">View</a>
+    <a class="button" href="server menu-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
+    <a class="button" href="server menu-fa.pdf" target="_blank">نمایش</a>
+    <a class="button" href="server menu-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
+    <a class="button" href="server menu-en.pdf" target="_blank">View</a>
     <div id="message"></div>
   </div>
 
