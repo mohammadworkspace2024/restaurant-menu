@@ -4,17 +4,15 @@
   <meta charset="UTF-8">
   <title>منوی رستوران هتل ساحلی نخل</title>
 
-  <!-- فونت انگلیسی از Google Fonts -->
+  <!-- فونت‌ها -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-
-  <!-- فونت فارسی Vazir از CDN -->
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
 
   <style>
     body {
       margin: 0;
       font-family: 'Vazir', 'Playfair Display', Tahoma, sans-serif;
-      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/background.jpg') no-repeat center center fixed;
+      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/golden-wallpaper.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       text-align: center;
@@ -43,14 +41,15 @@
     }
 
     .title-box {
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.12);
       border-radius: 16px;
       padding: 20px 30px;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      border: 1px solid rgba(212, 175, 55, 0.5);
       display: inline-block;
       animation: fadeInDown 1.2s ease-out;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .title-box h1 {
@@ -58,13 +57,15 @@
       margin: 0;
       font-family: 'Vazir', serif;
       color: #fff;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
     }
 
     .title-box h2 {
       font-size: 1.5em;
       font-family: 'Playfair Display', serif;
-      color: #eee;
+      color: #fdf6d3;
       margin-top: 10px;
+      text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
     }
 
     .menu-buttons {
@@ -76,13 +77,13 @@
     }
 
     .menu-block {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       border-radius: 16px;
       padding: 25px 35px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
       color: #fff;
     }
@@ -95,6 +96,8 @@
       margin-bottom: 20px;
       font-size: 1.3em;
       font-family: 'Vazir', sans-serif;
+      color: #fff;
+      text-shadow: 0 0 4px rgba(212, 175, 55, 0.5);
     }
 
     a.button {
@@ -105,9 +108,9 @@
       text-decoration: none;
       border-radius: 8px;
       font-size: 1em;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background-color 0.3s ease, transform 0.2s ease;
       font-family: 'Vazir', sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
     a.button:hover {
