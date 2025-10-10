@@ -9,57 +9,99 @@
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
       font-family: 'Vazir', 'Playfair Display', Tahoma, sans-serif;
-      background-image: url('background.jpg');
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: 100% auto; /* مقیاس‌پذیر با عرض صفحه */
-      background-attachment: scroll;
-      height: 100vh;
-      overflow: hidden;
+      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/golden-wallpaper.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
+      text-align: center;
+      padding: 60px;
     }
 
-    .menu-overlay {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 16px;
-  padding: 30px 40px;
-  border: 1px solid rgba(212, 175, 55, 0.5);
-  text-align: center;
-  max-width: 320px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  z-index: 10;
-}
+    .logo-title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease-out;
+    }
 
-    .menu-overlay h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
+    .logo {
+      width: 100px;
+      height: auto;
+      filter: drop-shadow(0 0 10px #d4af37);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .title-box {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 20px 30px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      display: inline-block;
+      animation: fadeInDown 1.2s ease-out;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .title-box h1 {
+      font-size: 2.5em;
+      margin: 0;
       font-family: 'Vazir', serif;
+      color: #fff;
       text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
     }
 
-    .menu-overlay h2 {
-      font-size: 1.2em;
-      margin-bottom: 25px;
+    .title-box h2 {
+      font-size: 1.5em;
       font-family: 'Playfair Display', serif;
       color: #fdf6d3;
+      margin-top: 10px;
       text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
     }
 
-    .button {
+    .menu-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .menu-block {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 25px 35px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      color: #fff;
+    }
+
+    .menu-block:hover {
+      transform: scale(1.05);
+    }
+
+    .menu-block h3 {
+      margin-bottom: 20px;
+      font-size: 1.3em;
+      font-family: 'Vazir', sans-serif;
+      color: #fff;
+      text-shadow: 0 0 4px rgba(212, 175, 55, 0.5);
+    }
+
+    a.button {
       display: inline-block;
-      margin: 5px;
       padding: 12px 25px;
       background-color: #d4af37;
       color: white;
@@ -71,62 +113,48 @@
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .button:hover {
+    a.button:hover {
       background-color: #bfa133;
       transform: scale(1.05);
     }
 
     #message {
-      margin-top: 20px;
-      font-size: 1em;
+      margin-top: 30px;
+      font-size: 1.1em;
+      color: #fff;
       opacity: 0;
       transition: opacity 0.5s ease;
+      font-family: 'Vazir', sans-serif;
     }
 
-    /* حالت موبایل */
-    @media (max-width: 768px) {
-  body {
-    background-image: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/background2.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: scroll;
-  }
-}
-      .menu-overlay {
-        position: static;
-        margin: auto;
-        padding: 20px;
-        max-width: 90%;
-        border-radius: 12px;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-      }
-
-      .menu-overlay h1 {
-        font-size: 1.6em;
-      }
-
-      .menu-overlay h2 {
-        font-size: 1em;
-      }
-
-      .button {
-        font-size: 0.9em;
-        padding: 10px 16px;
-      }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-
-  <div class="menu-overlay">
-    <h1>منوی رستوران</h1>
-    <h2>Restaurant Menu</h2>
-    <a class="button" href="server menu-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
-    <a class="button" href="server menu-fa.pdf" target="_blank">نمایش</a>
-    <a class="button" href="server menu-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
-    <a class="button" href="server menu-en.pdf" target="_blank">View</a>
-    <div id="message"></div>
+  <div class="logo-title">
+    <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="لوگو هتل" class="logo">
   </div>
+
+  <div class="title-box">
+    <h1>منوی رستوران هتل ساحلی نخل</h1>
+    <h2>Nakhl Hotel & Resort Restaurant Menu</h2>
+  </div>
+
+  <div class="menu-buttons">
+    <div class="menu-block">
+      <h3>دانلود منوی فارسی</h3>
+      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
+    </div>
+    <div class="menu-block">
+      <h3>Download English Menu</h3>
+      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
+    </div>
+  </div>
+
+  <div id="message"></div>
 
   <script>
     function showMessage(text) {
@@ -138,6 +166,5 @@
       }, 3000);
     }
   </script>
-
 </body>
 </html>
