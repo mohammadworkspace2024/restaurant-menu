@@ -2,21 +2,28 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>منوی رستوران هتل ساحلی نخل</title>
+  <title>منوی رستوران هتل ساحلی نخل | Nakhl Hotel & Resort Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- فونت‌ها -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
 
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
       font-family: 'Vazir', 'Playfair Display', Tahoma, sans-serif;
-      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center fixed;
+      background: linear-gradient(to bottom right, rgba(10,10,10,0.75), rgba(40,40,40,0.95)),
+                  url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
       text-align: center;
-      padding: 60px;
+      padding: 60px 20px;
+      overflow-x: hidden;
     }
 
     .logo-title {
@@ -25,115 +32,130 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       animation: fadeInDown 1s ease-out;
     }
 
     .logo {
-      width: 100px;
+      width: 110px;
       height: auto;
       filter: drop-shadow(0 0 10px #d4af37);
       transition: transform 0.3s ease;
     }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
+    .logo:hover { transform: scale(1.08); }
 
     .title-box {
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 20px 30px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 25px 40px;
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(212, 175, 55, 0.5);
       display: inline-block;
-      animation: fadeInDown 1.2s ease-out;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      animation: fadeInDown 1.5s ease;
     }
 
     .title-box h1 {
-      font-size: 2.5em;
+      font-size: 2.8em;
       margin: 0;
-      font-family: 'Vazir', serif;
       color: #fff;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+      text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
     }
 
     .title-box h2 {
       font-size: 1.5em;
-      font-family: 'Playfair Display', serif;
       color: #fdf6d3;
-      margin-top: 10px;
-      text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
+      margin-top: 12px;
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
     }
 
-    .menu-buttons {
+    .menu-section {
+      margin-top: 60px;
       display: flex;
       justify-content: center;
-      gap: 40px;
+      gap: 50px;
       flex-wrap: wrap;
-      margin-top: 40px;
+      animation: fadeInUp 1.5s ease;
     }
 
     .menu-block {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
       border-radius: 16px;
-      padding: 25px 35px;
+      padding: 30px;
       border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-      color: #fff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      width: 280px;
+      transition: all 0.3s ease;
+      cursor: pointer;
     }
 
     .menu-block:hover {
       transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(212,175,55,0.6);
     }
 
     .menu-block h3 {
       margin-bottom: 20px;
       font-size: 1.3em;
-      font-family: 'Vazir', sans-serif;
       color: #fff;
-      text-shadow: 0 0 4px rgba(212, 175, 55, 0.5);
+      text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
     }
 
     a.button {
       display: inline-block;
       padding: 12px 25px;
-      background-color: #d4af37;
+      background: linear-gradient(45deg, #d4af37, #bfa133);
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 1em;
-      font-family: 'Vazir', sans-serif;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
     }
 
-    a.button:hover {
-      background-color: #bfa133;
-      transform: scale(1.05);
-    }
+    a.button:hover { transform: scale(1.08); }
 
+    /* اعلان پیام */
     #message {
       margin-top: 30px;
-      font-size: 1.1em;
-      color: #fff;
+      font-size: 1.2em;
       opacity: 0;
-      transition: opacity 0.5s ease;
-      font-family: 'Vazir', sans-serif;
+      transition: opacity 0.6s ease;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 12px 25px;
+      border-radius: 10px;
+      display: inline-block;
     }
 
+    /* پارالاکس */
+    .parallax {
+      position: relative;
+      height: 400px;
+      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/restaurant-bg.jpg') center/cover fixed;
+      border-radius: 20px;
+      margin-top: 70px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+
+    /* انیمیشن‌ها */
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
+      from { opacity: 0; transform: translateY(-40px); }
       to { opacity: 1; transform: translateY(0); }
     }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    html { scroll-behavior: smooth; }
   </style>
 </head>
+
 <body>
+  <!-- لوگو و عنوان -->
   <div class="logo-title">
     <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="لوگو هتل" class="logo">
   </div>
@@ -143,28 +165,34 @@
     <h2>Nakhl Hotel & Resort Restaurant Menu</h2>
   </div>
 
-  <div class="menu-buttons">
+  <!-- بخش دکمه‌ها -->
+  <div class="menu-section">
     <div class="menu-block">
       <h3>دانلود منوی فارسی</h3>
-      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
+      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download>دانلود</a>
     </div>
+
     <div class="menu-block">
       <h3>Download English Menu</h3>
-      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
+      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download>Download</a>
     </div>
   </div>
 
+  <!-- پیام -->
   <div id="message"></div>
 
+  <!-- تصویر پارالاکس -->
+  <div class="parallax"></div>
+
   <script>
-    function showMessage(text) {
-      const msg = document.getElementById('message');
-      msg.textContent = text;
-      msg.style.opacity = 1;
-      setTimeout(() => {
-        msg.style.opacity = 0;
-      }, 3000);
-    }
+    // اعلان دانلود با jQuery
+    $('a.button').on('click', function() {
+      const text = $(this).text().includes('دانلود')
+        ? 'منوی فارسی با موفقیت دانلود شد ✅'
+        : 'English menu downloaded successfully ✅';
+      $('#message').text(text).css('opacity', 1);
+      setTimeout(() => $('#message').css('opacity', 0), 3000);
+    });
   </script>
 </body>
 </html>
