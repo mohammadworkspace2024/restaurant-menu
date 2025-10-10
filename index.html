@@ -2,20 +2,20 @@
 <html lang="fa">
 <head>
   <meta charset="UTF-8">
-  <title>منوی رستوران هتل ساحلی نخل | Nakhl Hotel & Resort Menu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منوی رستوران هتل ساحلی نخل</title>
 
+  <!-- فونت‌ها -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet" type="text/css" />
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
+      margin: 0;
       font-family: 'Vazir', 'Playfair Display', Tahoma, sans-serif;
-      background: linear-gradient(to bottom right, rgba(10,10,10,0.60), rgba(40,40,40,0.0)),
-                  url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center;
+      background:
+        linear-gradient(to bottom right, rgba(10,10,10,0.60), rgba(40,40,40,0.0)),
+        url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
       color: #fff;
@@ -31,155 +31,169 @@
       justify-content: center;
       gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       animation: fadeInDown 1s ease-out;
     }
 
     .logo {
-      width: 110px;
+      width: 100px;
       height: auto;
       filter: drop-shadow(0 0 10px #d4af37);
       transition: transform 0.3s ease;
     }
 
-    .logo:hover { transform: scale(1.08); }
+    .logo:hover {
+      transform: scale(1.05);
+    }
 
     .title-box {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 25px 40px;
-      backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 20px 30px;
+      backdrop-filter: blur(10px);
       border: 1px solid rgba(212, 175, 55, 0.5);
       display: inline-block;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      animation: fadeInDown 1.5s ease;
-      max-width: 90%;
+      animation: fadeInDown 1.2s ease-out;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
     .title-box h1 {
-      font-size: 2.2em;
+      font-size: 2.5em;
+      margin: 0;
+      font-family: 'Vazir', serif;
       color: #fff;
-      text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
     }
 
     .title-box h2 {
-      font-size: 1.2em;
+      font-size: 1.5em;
+      font-family: 'Playfair Display', serif;
       color: #fdf6d3;
       margin-top: 10px;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
+      text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
     }
 
-    .menu-section {
-      margin-top: 60px;
+    .menu-buttons {
       display: flex;
       justify-content: center;
-      gap: 30px;
+      gap: 40px;
       flex-wrap: wrap;
-      animation: fadeInUp 1.5s ease;
+      margin-top: 40px;
     }
 
     .menu-block {
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
       border-radius: 16px;
-      padding: 25px;
+      padding: 25px 35px;
       border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      width: 260px;
-      max-width: 90%;
-      transition: all 0.3s ease;
-      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      color: #fff;
+      max-width: 300px;
+      flex: 1 1 250px;
     }
 
     .menu-block:hover {
       transform: scale(1.05);
-      box-shadow: 0 8px 30px rgba(212,175,55,0.6);
     }
 
     .menu-block h3 {
       margin-bottom: 20px;
-      font-size: 1.1em;
+      font-size: 1.3em;
+      font-family: 'Vazir', sans-serif;
       color: #fff;
-      text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+      text-shadow: 0 0 4px rgba(212, 175, 55, 0.5);
     }
 
     a.button {
       display: inline-block;
       padding: 12px 25px;
-      background: linear-gradient(45deg, #d4af37, #bfa133);
+      background-color: #d4af37;
       color: white;
       text-decoration: none;
-      border-radius: 10px;
-      font-size: 0.95em;
-      font-weight: bold;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      transition: transform 0.2s ease;
+      border-radius: 8px;
+      font-size: 1em;
+      font-family: 'Vazir', sans-serif;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    a.button:hover { transform: scale(1.08); }
+    a.button:hover {
+      background-color: #bfa133;
+      transform: scale(1.05);
+    }
 
     #message {
       margin-top: 30px;
       font-size: 1.1em;
-      opacity: 0;
-      transition: opacity 0.6s ease;
       color: #fff;
-      background: rgba(0,0,0,0.5);
-      padding: 10px 20px;
-      border-radius: 10px;
-      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      font-family: 'Vazir', sans-serif;
     }
 
-    .parallax {
-      position: relative;
-      height: 300px;
-      background: url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/restaurant-bg.jpg') center/cover;
-      border-radius: 20px;
+    /* 🔹 باکس تماس */
+    .contact-box {
       margin-top: 60px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+      background: rgba(255,255,255,0.18);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212,175,55,0.4);
+      border-radius: 20px;
+      padding: 25px;
+      display: inline-block;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: right;
+      direction: rtl;
+      max-width: 600px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0;
+      color: #fff;
+      font-size: 1em;
+    }
+
+    .contact-item i {
+      color: #d4af37;
+      font-size: 1.2em;
+      min-width: 25px;
+    }
+
+    .contact-item a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-item a:hover {
+      color: #d4af37;
     }
 
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px); }
+      from { opacity: 0; transform: translateY(-30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    html { scroll-behavior: smooth; }
-
-    /* 📱 بهینه‌سازی برای موبایل */
+    /* 📱 حالت موبایل */
     @media (max-width: 768px) {
       body {
-        background-attachment: scroll; /* جلوگیری از سفید شدن پایین */
-        padding: 40px 10px;
+        padding: 40px 15px;
       }
-
-      .title-box h1 { font-size: 1.8em; }
-      .title-box h2 { font-size: 1em; }
-
-      .menu-section {
-        gap: 20px;
-        margin-top: 40px;
-      }
-
       .menu-block {
-        width: 100%;
-        max-width: 350px;
-        padding: 20px;
+        flex: 1 1 100%;
+        max-width: 90%;
       }
-
-      .parallax {
-        height: 200px;
-        background-attachment: scroll;
+      .contact-box {
+        max-width: 95%;
+        font-size: 0.95em;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="logo-title">
     <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="لوگو هتل" class="logo">
@@ -190,30 +204,37 @@
     <h2>Nakhl Hotel & Resort Restaurant Menu</h2>
   </div>
 
-  <div class="menu-section">
+  <div class="menu-buttons">
     <div class="menu-block">
-      <h3>منوی فارسی</h3>
-      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download>دانلود</a>
+      <h3>دانلود منوی فارسی</h3>
+      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
     </div>
-
     <div class="menu-block">
-      <h3>English Menu</h3>
-      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download>Download</a>
+      <h3>Download English Menu</h3>
+      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
     </div>
   </div>
 
   <div id="message"></div>
-  <div class="parallax"></div>
+
+  <!-- 📍 اطلاعات تماس -->
+  <div class="contact-box">
+    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> آدرس: بوشهر، کیلومتر ۵ جاده کنگان - عسلویه</div>
+    <div class="contact-item"><i class="fas fa-phone"></i> تلفن ثابت: <a href="tel:07732330000">07732330000</a></div>
+    <div class="contact-item"><i class="fab fa-whatsapp"></i> واتساپ: <a href="https://wa.me/989937793319" target="_blank">+98 993 779 3319</a></div>
+    <div class="contact-item"><i class="fas fa-envelope"></i> ایمیل: <a href="mailto:info@nakhlhotelresort.com">info@nakhlhotelresort.com</a></div>
+    <div class="contact-item"><i class="fab fa-instagram"></i> اینستاگرام: <a href="https://instagram.com/nakhl.hotel.resort" target="_blank">@nakhl.hotel.resort</a></div>
+  </div>
 
   <script>
-    // اعلان دانلود با jQuery
-    $('a.button').on('click', function() {
-      const text = $(this).text().includes('دانلود')
-        ? 'منوی فارسی با موفقیت دانلود شد ✅'
-        : 'English menu downloaded successfully ✅';
-      $('#message').text(text).css('opacity', 1);
-      setTimeout(() => $('#message').css('opacity', 0), 3000);
-    });
+    function showMessage(text) {
+      const msg = document.getElementById('message');
+      msg.textContent = text;
+      msg.style.opacity = 1;
+      setTimeout(() => {
+        msg.style.opacity = 0;
+      }, 3000);
+    }
   </script>
 </body>
 </html>
