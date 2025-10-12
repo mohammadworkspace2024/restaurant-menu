@@ -13,130 +13,101 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Vazir', 'Playfair Display', Tahoma, sans-serif;
+      font-family: 'Vazir', Tahoma, sans-serif;
       background:
-        linear-gradient(to bottom right, rgba(10,10,10,0.7), rgba(40,40,40,0.0)),
+        linear-gradient(to bottom right, rgba(10,10,10,0.6), rgba(40,40,40,0.0)),
         url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
-      background-color: #111;
       color: #fff;
       text-align: center;
       padding: 60px 20px;
       overflow-x: hidden;
-      min-height: 100vh;
     }
 
-    .logo-title {
+    /* 🔹 باکس لوگو و عنوان */
+    .header-box {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
-      margin-bottom: 25px;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    .logo {
-      width: 100px;
-      height: auto;
-      filter: drop-shadow(0 0 10px #d4af37);
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .title-box {
       background: rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 25px 35px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(212, 175, 55, 0.5);
-      display: inline-block;
-      animation: fadeInDown 1.2s ease-out;
+      border-radius: 20px;
+      padding: 25px 35px;
+      margin: 0 auto 50px auto;
+      max-width: 700px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      margin-bottom: 50px; /* فاصله با منو */
+      direction: rtl;
+      text-align: right;
     }
 
-    .title-box h1 {
-      font-size: 2.5em;
+    .header-box img {
+      width: 100px;
+      height: auto;
+      margin-left: 25px;
+      filter: drop-shadow(0 0 1px #d4af37);
+    }
+
+    .header-text h1 {
+      font-size: 1.9em;
       margin: 0;
-      font-family: 'Vazir', serif;
       color: #fff;
       text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
     }
 
-    .title-box h2 {
-      font-size: 1.5em;
-      font-family: 'Playfair Display', serif;
+    .header-text h2 {
+      font-size: 1.2em;
       color: #fdf6d3;
-      margin-top: 10px;
+      margin-top: 8px;
       text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
     }
 
-    .menu-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin-bottom: 60px; /* فاصله با باکس تماس */
-    }
-
-    .menu-block {
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
+    /* 🔸 سکشن منو */
+    .menu-section {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212,175,55,0.4);
       border-radius: 16px;
-      padding: 25px 35px;
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      box-shadow: 0 4px 20px rgba(212,175,55,0.25), 0 0 12px rgba(212,175,55,0.15);
-      transition: transform 0.3s ease;
-      color: #fff;
-      max-width: 170px;
-      flex: 1 1 250px;
+      margin: 25px auto;
+      padding: 25px 30px;
+      max-width: 700px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      text-align: right;
+      direction: rtl;
     }
 
-    .menu-block:hover {
-      transform: scale(1.05);
-    }
-
-    .menu-block h3 {
+    .menu-section h3 {
+      font-size: 1.4em;
+      color: #d4af37;
+      text-align: center;
+      border-bottom: 1px solid rgba(212,175,55,0.3);
+      padding-bottom: 10px;
       margin-bottom: 20px;
-      font-size: 1.3em;
-      font-family: 'Vazir', sans-serif;
-      color: #fff;
-      text-shadow: 0 0 4px rgba(212, 175, 55, 0.5);
+      text-shadow: 0 0 5px rgba(212,175,55,0.4);
     }
 
-    a.button {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #d4af37;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      border-bottom: 1px dashed rgba(255,255,255,0.2);
+      padding-bottom: 5px;
+    }
+
+    .menu-item span {
+      color: #fff;
       font-size: 1em;
-      font-family: 'Vazir', sans-serif;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    a.button:hover {
-      background-color: #bfa133;
-      transform: scale(1.05);
+    .price {
+      color: #d4af37;
+      font-weight: bold;
+      min-width: 80px;
+      text-align: left;
     }
-
-    #message {
-      margin-top: 30px;
-      font-size: 1.1em;
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-      font-family: 'Vazir', sans-serif;
-    }
-
-    /* 🔹 باکس تماس */
+	 /* 📍 اطلاعات تماس */
     .contact-box {
       margin: 0 auto;
       background: rgba(255,255,255,0.18);
@@ -148,7 +119,7 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       text-align: right;
       direction: rtl;
-      max-width: 600px;
+      max-width: 100%;
     }
 
     .contact-item {
@@ -156,8 +127,6 @@
       align-items: center;
       gap: 10px;
       margin: 10px 0;
-      color: #fff;
-      font-size: 1em;
     }
 
     .contact-item i {
@@ -172,81 +141,134 @@
       transition: color 0.3s ease;
     }
 
-    .contact-item a:hover {
-      color: #d4af37;
-    }
+    .contact-item a:hover { color: #d4af37; }
 
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* 📱 حالت موبایل */
     @media (max-width: 768px) {
-      body {
-        padding: 40px 15px;
-      }
-      .title-box {
-	font-size: 0.70em;
+      .header-box {
+        flex-direction: column;
+        text-align: center;
         padding: 20px;
-        margin-bottom: 40px;
       }
-      .menu-buttons {
-        margin-bottom: 50px;
+      .header-box img {
+        margin: 0 0 15px 0;
       }
-      .menu-block {
-        flex: 1 1 100%;
-        max-width: 130px;
+      .menu-section {
+        padding: 20px;
       }
-      .contact-box {
-        max-width: 150%;
-        font-size: 0.95em;
-        margin-top: 0;
+      .menu-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .price {
+        text-align: right;
+        margin-top: 3px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="logo-title">
-    <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="لوگو هتل" class="logo">
-  </div>
 
-  <div class="title-box">
-    <h1>منوی رستوران هتل ساحلی نخل</h1>
-    <h2>Nakhl Hotel & Resort Restaurant Menu</h2>
-  </div>
-
-  <div class="menu-buttons">
-    <div class="menu-block">
-      <h3>منوی فارسی</h3>
-      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-fa.pdf" download onclick="showMessage('منوی فارسی با موفقیت دانلود شد')">دانلود</a>
-    </div>
-    <div class="menu-block">
-      <h3>English Menu</h3>
-      <a class="button" href="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/server%20menu%20-en.pdf" download onclick="showMessage('English menu downloaded successfully')">Download</a>
+  <!-- 🔹 باکس لوگو و عنوان -->
+  <div class="header-box">
+    <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="لوگو هتل">
+    <div class="header-text">
+      <h1>منوی رستوران هتل ساحلی نخل</h1>
+      <h2>Nakhl Hotel & Resort Restaurant Menu</h2>
     </div>
   </div>
 
-  <div id="message"></div>
+  <!-- 🍽️ غذاهای گرم -->
+  <div class="menu-section">
+    <h3>غذاهای گرم</h3>
+    <div class="menu-item"><span>خوراک کباب برگ</span><span class="price">900,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک جوجه کباب با استخوان</span><span class="price">660,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک جوجه کباب بدون استخوان</span><span class="price">550,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک کباب کوبیده</span><span class="price">560,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک کباب بره</span><span class="price">990,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک کباب بختیاری</span><span class="price">720,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک شیشلیک</span><span class="price">1,200,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک وزیری</span><span class="price">830,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک کباب سلطانی</span><span class="price">1,100,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک میگو کبابی</span><span class="price">1,100,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک میگو سوخاری</span><span class="price">980,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک میگو دوپیازه</span><span class="price">900,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک قلیه ماهی شیر</span><span class="price">1,000,000 تومان</span></div>
+    <div class="menu-item"><span>خوراک ماهی شیر کبابی</span><span class="price">900,000 تومان</span></div>
+    <div class="menu-item"><span>زرشک پلو با مرغ</span><span class="price">500,000 تومان</span></div>
+    <div class="menu-item"><span>چلو ساده ایرانی</span><span class="price">140,000 تومان</span></div>
+  </div>
 
-  <!-- 📍 اطلاعات تماس -->
-  <div class="contact-box">
-    <div class="contact-item"><i class="fas fa-map-marker-alt"></i>بوشهر، کیلومتر ۵ جاده کنگان - عسلویه</div>
+  <!-- 🍔 فست‌فود -->
+  <div class="menu-section">
+    <h3>فست‌فود</h3>
+    <div class="menu-item"><span>ساندویچ استیک گوشت</span><span class="price">600,000 تومان</span></div>
+    <div class="menu-item"><span>ساندویچ استیک مرغ</span><span class="price">350,000 تومان</span></div>
+    <div class="menu-item"><span>ساندویچ پنیر</span><span class="price">330,000 تومان</span></div>
+    <div class="menu-item"><span>ساندویچ مرغ</span><span class="price">375,000 تومان</span></div>
+    <div class="menu-item"><span>کلاب ساندویچ</span><span class="price">550,000 تومان</span></div>
+    <div class="menu-item"><span>برگر</span><span class="price">500,000 تومان</span></div>
+    <div class="menu-item"><span>چیزبرگر</span><span class="price">415,000 تومان</span></div>
+    <div class="menu-item"><span>چیکن برگر</span><span class="price">400,000 تومان</span></div>
+    <div class="menu-item"><span>چیکن کوردن بلو</span><span class="price">550,000 تومان</span></div>
+    <div class="menu-item"><span>پیتزا قارچ و مرغ</span><span class="price">450,000 تومان</span></div>
+    <div class="menu-item"><span>پیتزا پپرونی</span><span class="price">550,000 تومان</span></div>
+    <div class="menu-item"><span>پیتزا مارگاریتا</span><span class="price">397,000 تومان</span></div>
+    <div class="menu-item"><span>پیتزا ژامبون</span><span class="price">530,000 تومان</span></div>
+  </div>
+
+  <!-- 🥩 استیک و غذای ویژه -->
+  <div class="menu-section">
+    <h3>استیک و غذای ویژه</h3>
+    <div class="menu-item"><span>استیک</span><span class="price">1,000,000 تومان</span></div>
+    <div class="menu-item"><span>سیرلوین استیک</span><span class="price">900,000 تومان</span></div>
+    <div class="menu-item"><span>فیله مینیون</span><span class="price">1,100,000 تومان</span></div>
+    <div class="menu-item"><span>کوکتل میگو</span><span class="price">800,000 تومان</span></div>
+    <div class="menu-item"><span>سینی مخصوص هتل نخل</span><span class="price">1,965,000 تومان</span></div>
+    <div class="menu-item"><span>پیتزا مخصوص هتل نخل</span><span class="price">605,000 تومان</span></div>
+  </div>
+
+  <!-- 🥗 پیش‌غذا -->
+  <div class="menu-section">
+    <h3>پیش‌غذا</h3>
+    <div class="menu-item"><span>سالاد شیرازی</span><span class="price">90,000 تومان</span></div>
+    <div class="menu-item"><span>سالاد فصل</span><span class="price">120,000 تومان</span></div>
+    <div class="menu-item"><span>سالاد سزار</span><span class="price">430,000 تومان</span></div>
+    <div class="menu-item"><span>ماست خیار</span><span class="price">65,000 تومان</span></div>
+    <div class="menu-item"><span>ماست ساده</span><span class="price">52,000 تومان</span></div>
+    <div class="menu-item"><span>ترشی مخلوط</span><span class="price">90,000 تومان</span></div>
+    <div class="menu-item"><span>زیتون سبز</span><span class="price">90,000 تومان</span></div>
+    <div class="menu-item"><span>ترشی سیر</span><span class="price">90,000 تومان</span></div>
+    <div class="menu-item"><span>سوپ روز</span><span class="price">90,000 تومان</span></div>
+    <div class="menu-item"><span>بورانی اسفناج</span><span class="price">120,000 تومان</span></div>
+    <div class="menu-item"><span>بورانی بادمجان</span><span class="price">120,000 تومان</span></div>
+    <div class="menu-item"><span>نودالیت</span><span class="price">345,000 تومان</span></div>
+    <div class="menu-item"><span>سیب‌زمینی سرخ کرده</span><span class="price">172,500 تومان</span></div>
+  </div>
+
+  <!-- ☕ نوشیدنی گرم -->
+  <div class="menu-section">
+    <h3>نوشیدنی گرم</h3>
+    <div class="menu-item"><span>چای لیوانی</span><span class="price">46,000 تومان</span></div>
+    <div class="menu-item"><span>نسکافه</span><span class="price">69,000 تومان</span></div>
+  </div>
+
+  <!-- 🍷 نوشیدنی سرد -->
+  <div class="menu-section">
+    <h3>نوشیدنی سرد</h3>
+    <div class="menu-item"><span>نوشابه قوطی</span><span class="price">35,800 تومان</span></div>
+    <div class="menu-item"><span>آب معدنی کوچک</span><span class="price">10,350 تومان</span></div>
+    <div class="menu-item"><span>آب معدنی بزرگ</span><span class="price">14,950 تومان</span></div>
+    <div class="menu-item"><span>ماءالشعیر لیمویی</span><span class="price">30,000 تومان</span></div>
+    <div class="menu-item"><span>ماءالشعیر کلاسیک</span><span class="price">39,000 تومان</span></div>
+    <div class="menu-item"><span>دوغ قوطی</span><span class="price">40,900 تومان</span></div>
+  </div>
+<div class="contact-box">
+    <div class="contact-item"> <i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=27.780859,52.117250" target="_blank"> بوشهر، کیلومتر ۵ جاده کنگان - عسلویه </a> </div>
     <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:07732330000">07732330000</a></div>
     <div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/989937793319" target="_blank">09937793319</a></div>
     <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@nakhlhotelresort.com">info@nakhlhotelresort.com</a></div>
     <div class="contact-item"><i class="fab fa-instagram"></i><a href="https://instagram.com/nakhl.hotel.resort" target="_blank">nakhl.hotel.resort</a></div>
   </div>
 
-  <script>
-    function showMessage(text) {
-      const msg = document.getElementById('message');
-      msg.textContent = text;
-      msg.style.opacity = 1;
-      setTimeout(() => {
-        msg.style.opacity = 0;
-      }, 3000);
-    }
-  </script>
 </body>
 </html>
