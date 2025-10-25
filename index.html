@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>منوی رستوران هتل ساحلی نخل</title>
 
   <!-- فونت‌ها -->
@@ -11,264 +11,282 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
+    :root{
+      --gold: #d4af37;
+      --glass-bg: rgba(255,255,255,0.14);
+      --glass-border: rgba(212,175,55,0.4);
+      --text: #ffffff;
+      --muted: #f0e6b8;
+      --maxw: 900px;
+    }
+
+    html,body{height:100%;}
     body {
       margin: 0;
       font-family: 'Vazir', Tahoma, sans-serif;
       background:
-        linear-gradient(to bottom right, rgba(10,10,10,0.6), rgba(40,40,40,0.0)),
+        linear-gradient(135deg, rgba(10,10,10,0.65), rgba(30,30,30,0.05)),
         url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center;
       background-size: cover;
       background-attachment: fixed;
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-      overflow-x: hidden;
+      color: var(--text);
+      padding: 48px 18px;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    /* 🔹 باکس لوگو و عنوان */
+    /* Wrapper center */
+    .container{
+      max-width: var(--maxw);
+      margin: 0 auto 40px auto;
+    }
+
+    /* Header */
     .header-box {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: rgba(255, 255, 255, 0.12);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      border-radius: 20px;
-      padding: 25px 35px;
-      margin: 0 auto 50px auto;
-      max-width: 700px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      direction: rtl;
-      text-align: right;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      justify-content:center;
+      flex-wrap:wrap;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(212,175,55,0.5);
+      border-radius:18px;
+      padding:20px 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.36);
+      text-align:right;
+    }
+    .header-box img{ width:92px; height:auto; filter: drop-shadow(0 0 3px rgba(212,175,55,0.35)); }
+    .header-text h1{ margin:0; font-size:1.7rem; color:var(--text); text-shadow:0 0 6px rgba(212,175,55,0.5); }
+    .header-text h2{ margin:6px 0 0 0; font-size:1rem; color:var(--muted); }
+
+    /* Section card */
+    .menu-section{
+      margin-top:22px;
+      background: var(--glass-bg);
+      border-radius:14px;
+      padding:18px 18px;
+      border:1px solid var(--glass-border);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.32);
+    }
+    .menu-section h3{
+      margin:0 0 12px 0;
+      color:var(--gold);
+      font-size:1.15rem;
+      text-align:center;
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(212,175,55,0.22);
+      text-shadow:0 0 4px rgba(212,175,55,0.2);
     }
 
-    .header-box img {
-      width: 100px;
-      height: auto;
-      margin-left: 25px;
-      filter: drop-shadow(0 0 1px #d4af37);
+    /* Menu item: three columns */
+    .menu-item{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 6px;
+      margin:6px 0;
     }
 
-    .header-text h1 {
-      font-size: 1.9em;
-      margin: 0;
-      color: #fff;
-      text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+    .menu-item > .col{
+      flex: 1 1 0%;
+      min-width:0;
     }
 
-    .header-text h2 {
-      font-size: 1.2em;
-      color: #fdf6d3;
-      margin-top: 8px;
-      text-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
+    /* Right: Persian name */
+    .fa-name{
+      text-align:right;
+      font-size:1rem;
+      color:var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* 🔸 سکشن منو */
-    .menu-section {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(212,175,55,0.4);
-      border-radius: 16px;
-      margin: 25px auto;
-      padding: 25px 30px;
-      max-width: 700px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      text-align: right;
-      direction: rtl;
+    /* Middle: English name */
+    .en-name{
+      text-align:center;
+      font-family: 'Playfair Display', serif;
+      font-size:0.95rem;
+      color:var(--muted);
+      padding:0 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .menu-section h3 {
-      font-size: 1.4em;
-      color: #d4af37;
-      text-align: center;
-      border-bottom: 1px solid rgba(212,175,55,0.3);
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      text-shadow: 0 0 5px rgba(212,175,55,0.4);
+    /* Left: Price */
+    .price{
+      text-align:left;
+      font-weight:700;
+      color:var(--gold);
+      min-width:110px;
+      white-space: nowrap;
+      direction:ltr; /* keep numbers LTR */
+      font-size:0.98rem;
     }
 
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      margin: 8px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.2);
-      padding-bottom: 5px;
+    /* remove any separators — clean look already achieved */
+
+    /* Contact box */
+    .contact-box{
+      margin-top:18px;
+      background: rgba(255,255,255,0.16);
+      border-radius:14px;
+      padding:14px 16px;
+      border:1px solid var(--glass-border);
+      display:block;
+      text-align:right;
+    }
+    .contact-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin:8px 0;
+    }
+    .contact-item i{ color:var(--gold); min-width:28px; font-size:1.1rem; }
+    .contact-item a{ color:var(--text); text-decoration:none; }
+    .contact-item a:hover{ color:var(--gold); }
+
+    /* Responsive: stack in mobile */
+    @media (max-width:780px){
+      :root{ --maxw: 720px; }
+      .menu-item{ flex-direction:column; align-items:center; text-align:center; padding:8px 6px; }
+      .fa-name{ text-align:center; width:100%; white-space:normal; }
+      .en-name{ width:100%; white-space:normal; margin-top:4px; }
+      .price{ text-align:center; width:100%; margin-top:6px; direction:ltr; }
+      .header-box{ padding:14px; }
     }
 
-    .menu-item span {
-      color: #fff;
-      font-size: 1em;
-    }
-
-    .price {
-      color: #d4af37;
-      font-weight: bold;
-      min-width: 80px;
-      text-align: left;
-    }
-	 /* 📍 اطلاعات تماس */
-    .contact-box {
-      margin: 0 auto;
-      background: rgba(255,255,255,0.18);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(212,175,55,0.4);
-      border-radius: 20px;
-      padding: 25px 30px;
-      display: inline-block;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      text-align: right;
-      direction: rtl;
-      max-width: 100%;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 10px 0;
-    }
-
-    .contact-item i {
-      color: #d4af37;
-      font-size: 1.2em;
-      min-width: 25px;
-    }
-
-    .contact-item a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .contact-item a:hover { color: #d4af37; }
-
-    @media (max-width: 768px) {
-      .header-box {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-      }
-      .header-box img {
-        margin: 0 0 15px 0;
-      }
-      .menu-section {
-        padding: 20px;
-      }
-      .menu-item {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .price {
-        text-align: right;
-        margin-top: 3px;
-      }
+    @media (max-width:420px){
+      body{ padding:20px 10px; }
+      .header-text h1{ font-size:1.4rem; }
+      .en-name{ font-size:0.92rem; }
     }
   </style>
 </head>
 <body>
-
-  <!-- 🔹 باکس لوگو و عنوان -->
-  <div class="header-box">
-    <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="لوگو هتل">
-    <div class="header-text">
-      <h1>منوی رستوران هتل ساحلی نخل</h1>
-      <h2>Nakhl Hotel & Resort Restaurant Menu</h2>
+  <div class="container">
+    <!-- Header -->
+    <div class="header-box" role="banner">
+      <img src="https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/logo.png" alt="Nakhl Hotel logo">
+      <div class="header-text">
+        <h1>منوی رستوران هتل ساحلی نخل</h1>
+        <h2>Nakhl Hotel & Resort — Restaurant Menu</h2>
+      </div>
     </div>
-  </div>
 
-  <!-- 🍽️ غذاهای گرم -->
-  <div class="menu-section">
-    <h3>غذاهای گرم</h3>
-    <div class="menu-item"><span>خوراک کباب برگ</span><span class="price">900,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک جوجه کباب با استخوان</span><span class="price">660,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک جوجه کباب بدون استخوان</span><span class="price">550,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک کباب کوبیده</span><span class="price">560,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک کباب بره</span><span class="price">990,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک کباب بختیاری</span><span class="price">720,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک شیشلیک</span><span class="price">1,200,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک وزیری</span><span class="price">830,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک کباب سلطانی</span><span class="price">1,100,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک میگو کبابی</span><span class="price">1,100,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک میگو سوخاری</span><span class="price">980,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک میگو دوپیازه</span><span class="price">900,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک قلیه ماهی شیر</span><span class="price">1,000,000 تومان</span></div>
-    <div class="menu-item"><span>خوراک ماهی شیر کبابی</span><span class="price">900,000 تومان</span></div>
-    <div class="menu-item"><span>زرشک پلو با مرغ</span><span class="price">500,000 تومان</span></div>
-    <div class="menu-item"><span>چلو ساده ایرانی</span><span class="price">140,000 تومان</span></div>
-  </div>
+    <!-- غذاهای گرم -->
+    <section class="menu-section" aria-labelledby="warm-foods">
+      <h3 id="warm-foods">غذاهای گرم / Hot Food</h3>
 
-  <!-- 🍔 فست‌فود -->
-  <div class="menu-section">
-    <h3>فست‌فود</h3>
-    <div class="menu-item"><span>ساندویچ استیک گوشت</span><span class="price">600,000 تومان</span></div>
-    <div class="menu-item"><span>ساندویچ استیک مرغ</span><span class="price">350,000 تومان</span></div>
-    <div class="menu-item"><span>ساندویچ پنیر</span><span class="price">330,000 تومان</span></div>
-    <div class="menu-item"><span>ساندویچ مرغ</span><span class="price">375,000 تومان</span></div>
-    <div class="menu-item"><span>کلاب ساندویچ</span><span class="price">550,000 تومان</span></div>
-    <div class="menu-item"><span>برگر</span><span class="price">500,000 تومان</span></div>
-    <div class="menu-item"><span>چیزبرگر</span><span class="price">415,000 تومان</span></div>
-    <div class="menu-item"><span>چیکن برگر</span><span class="price">400,000 تومان</span></div>
-    <div class="menu-item"><span>چیکن کوردن بلو</span><span class="price">550,000 تومان</span></div>
-    <div class="menu-item"><span>پیتزا قارچ و مرغ</span><span class="price">450,000 تومان</span></div>
-    <div class="menu-item"><span>پیتزا پپرونی</span><span class="price">550,000 تومان</span></div>
-    <div class="menu-item"><span>پیتزا مارگاریتا</span><span class="price">397,000 تومان</span></div>
-    <div class="menu-item"><span>پیتزا ژامبون</span><span class="price">530,000 تومان</span></div>
-  </div>
+      <div class="menu-item"><div class="col fa-name">خوراک کباب برگ</div><div class="col en-name">Barg Kebab</div><div class="col price">900,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک جوجه کباب با استخوان</div><div class="col en-name">Rost Chicken with bones</div><div class="col price">660,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک جوجه کباب بدون استخوان</div><div class="col en-name">Rost Chicken without bones</div><div class="col price">550,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک کباب کوبیده</div><div class="col en-name">Koobideh Kebab</div><div class="col price">560,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک کباب بره</div><div class="col en-name">Lamb Kebab</div><div class="col price">990,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک کباب بختیاری</div><div class="col en-name">Bakhtiari(Mix)Kebab</div><div class="col price">720,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک شیشلیک</div><div class="col en-name">Shish Kebab</div><div class="col price">1,200,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک وزیری</div><div class="col en-name">Vaziri Kebab</div><div class="col price">830,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک کباب سلطانی</div><div class="col en-name">Soltani Kebab</div><div class="col price">1,100,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک میگو کبابی</div><div class="col en-name">Grilled Shrimp</div><div class="col price">1,100,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک میگو سوخاری</div><div class="col en-name">Fried Shrimp</div><div class="col price">980,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک میگو دوپیازه</div><div class="col en-name">Shrimp Dumplings</div><div class="col price">900,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک میگو پفکی</div><div class="col en-name">Puffed Shrimp</div><div class="col price">980,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک قلیه ماهی محلی</div><div class="col en-name">Local Fish Stew</div><div class="col price">1,000,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک قلیه ماهی شیر</div><div class="col en-name">Shir Fish Stew</div><div class="col price">1,000,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک ماهی شیر کبابی</div><div class="col en-name">Grilled Shir Fish</div><div class="col price">900,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک ماهی شیر سرخ شده</div><div class="col en-name">Fried Shir Fish</div><div class="col price">900,000 Toman/تومان</div></div> 
+      <div class="menu-item"><div class="col fa-name">خوراک فیله ماهی محلی جنوب</div><div class="col en-name">Fried Local Fish</div><div class="col price">800,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خوراک گوشت</div><div class="col en-name">Lamb Stew</div><div class="col price">1,000,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">باقالی پلو با گوشت گوسفندی</div><div class="col en-name">Baghali Polo with Lamb</div><div class="col price">1,200,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">زرشک پلو با مرغ</div><div class="col en-name">Barberry Pilaf with Chicken</div><div class="col price">500,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خورشت روز</div><div class="col en-name">Stew of the Day</div><div class="col price">380,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">خورشت فسنجان</div><div class="col en-name">Fesenjan Stew</div><div class="col price">550,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">چلو ساده ایرانی</div><div class="col en-name">Iranian Chelo(Rice)</div><div class="col price">140,000 Toman/تومان</div></div>
+    </section>
 
-  <!-- 🥩 استیک و غذای ویژه -->
-  <div class="menu-section">
-    <h3>استیک و غذای ویژه</h3>
-    <div class="menu-item"><span>استیک</span><span class="price">1,000,000 تومان</span></div>
-    <div class="menu-item"><span>سیرلوین استیک</span><span class="price">900,000 تومان</span></div>
-    <div class="menu-item"><span>فیله مینیون</span><span class="price">1,100,000 تومان</span></div>
-    <div class="menu-item"><span>کوکتل میگو</span><span class="price">800,000 تومان</span></div>
-    <div class="menu-item"><span>سینی مخصوص هتل نخل</span><span class="price">1,965,000 تومان</span></div>
-    <div class="menu-item"><span>پیتزا مخصوص هتل نخل</span><span class="price">605,000 تومان</span></div>
-  </div>
+    <!-- فست‌فود -->
+    <section class="menu-section" aria-labelledby="fast-food">
+      <h3 id="fast-food">فست‌فود / Fastfood</h3>
 
-  <!-- 🥗 پیش‌غذا -->
-  <div class="menu-section">
-    <h3>پیش‌غذا</h3>
-    <div class="menu-item"><span>سالاد شیرازی</span><span class="price">90,000 تومان</span></div>
-    <div class="menu-item"><span>سالاد فصل</span><span class="price">120,000 تومان</span></div>
-    <div class="menu-item"><span>سالاد سزار</span><span class="price">430,000 تومان</span></div>
-    <div class="menu-item"><span>ماست خیار</span><span class="price">65,000 تومان</span></div>
-    <div class="menu-item"><span>ماست ساده</span><span class="price">52,000 تومان</span></div>
-    <div class="menu-item"><span>ترشی مخلوط</span><span class="price">90,000 تومان</span></div>
-    <div class="menu-item"><span>زیتون سبز</span><span class="price">90,000 تومان</span></div>
-    <div class="menu-item"><span>ترشی سیر</span><span class="price">90,000 تومان</span></div>
-    <div class="menu-item"><span>سوپ روز</span><span class="price">90,000 تومان</span></div>
-    <div class="menu-item"><span>بورانی اسفناج</span><span class="price">120,000 تومان</span></div>
-    <div class="menu-item"><span>بورانی بادمجان</span><span class="price">120,000 تومان</span></div>
-    <div class="menu-item"><span>نودالیت</span><span class="price">345,000 تومان</span></div>
-    <div class="menu-item"><span>سیب‌زمینی سرخ کرده</span><span class="price">172,500 تومان</span></div>
-  </div>
+      <div class="menu-item"><div class="col fa-name">ساندویچ استیک گوشت</div><div class="col en-name">Steak Sandwich</div><div class="col price">600,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ساندویچ استیک مرغ</div><div class="col en-name">Chicken Steak Sandwich</div><div class="col price">350,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ساندویچ پنیر</div><div class="col en-name">Cheese Sandwich</div><div class="col price">330,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ساندویچ مرغ</div><div class="col en-name">Chicken Sandwich</div><div class="col price">375,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">کلاب ساندویچ</div><div class="col en-name">Club Sandwich</div><div class="col price">550,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">برگر</div><div class="col en-name">Burger</div><div class="col price">500,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">چیزبرگر</div><div class="col en-name">Cheeseburger</div><div class="col price">415,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">چیکن برگر</div><div class="col en-name">Chicken Burger</div><div class="col price">400,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">چیکن کوردن بلو</div><div class="col en-name">Chicken Cordon Bleu</div><div class="col price">550,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">پیتزا قارچ و مرغ</div><div class="col en-name">Mushroom & Chicken Pizza</div><div class="col price">450,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">پیتزا پپرونی</div><div class="col en-name">Pepperoni Pizza</div><div class="col price">550,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">پیتزا مارگاریتا</div><div class="col en-name">Margarita Pizza</div><div class="col price">397,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">پیتزا ژامبون</div><div class="col en-name">Ham Pizza</div><div class="col price">530,000 Toman/تومان</div></div>
+    </section>
 
-  <!-- ☕ نوشیدنی گرم -->
-  <div class="menu-section">
-    <h3>نوشیدنی گرم</h3>
-    <div class="menu-item"><span>چای لیوانی</span><span class="price">46,000 تومان</span></div>
-    <div class="menu-item"><span>نسکافه</span><span class="price">69,000 تومان</span></div>
-  </div>
+    <!-- استیک و غذای ویژه -->
+    <section class="menu-section" aria-labelledby="steak-special">
+      <h3 id="steak-special">استیک و غذای ویژه / Steak and specialty food</h3>
 
-  <!-- 🍷 نوشیدنی سرد -->
-  <div class="menu-section">
-    <h3>نوشیدنی سرد</h3>
-    <div class="menu-item"><span>نوشابه قوطی</span><span class="price">35,800 تومان</span></div>
-    <div class="menu-item"><span>آب معدنی کوچک</span><span class="price">10,350 تومان</span></div>
-    <div class="menu-item"><span>آب معدنی بزرگ</span><span class="price">14,950 تومان</span></div>
-    <div class="menu-item"><span>ماءالشعیر لیمویی</span><span class="price">30,000 تومان</span></div>
-    <div class="menu-item"><span>ماءالشعیر کلاسیک</span><span class="price">39,000 تومان</span></div>
-    <div class="menu-item"><span>دوغ قوطی</span><span class="price">40,900 تومان</span></div>
-  </div>
-<div class="contact-box">
-    <div class="contact-item"> <i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=27.780859,52.117250" target="_blank"> بوشهر، کیلومتر ۵ جاده کنگان - عسلویه </a> </div>
-    <div class="contact-item"><i class="fas fa-phone"></i><a href="tel:07732330000">07732330000</a></div>
-    <div class="contact-item"><i class="fab fa-whatsapp"></i><a href="https://wa.me/989937793319" target="_blank">09937793319</a></div>
-    <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:info@nakhlhotelresort.com">info@nakhlhotelresort.com</a></div>
-    <div class="contact-item"><i class="fab fa-instagram"></i><a href="https://instagram.com/nakhl.hotel.resort" target="_blank">nakhl.hotel.resort</a></div>
-  </div>
+      <div class="menu-item"><div class="col fa-name">استیک</div><div class="col en-name">Steak</div><div class="col price">1,000,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">سیرلوین استیک</div><div class="col en-name">Sirloin Steak</div><div class="col price">900,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">فیله مینیون</div><div class="col en-name">Filet Mignon</div><div class="col price">1,100,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">کوکتل میگو</div><div class="col en-name">Shrimp Cocktail</div><div class="col price">800,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">سینی مخصوص هتل نخل</div><div class="col en-name">Nakhl Hotel Special Tray</div><div class="col price">1,965,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">پیتزا مخصوص هتل نخل</div><div class="col en-name">Special Pizza for Nakhl Hotel</div><div class="col price">605,000 Toman/تومان</div></div>
+    </section>
 
+    <!-- پیش‌غذا -->
+    <section class="menu-section" aria-labelledby="appetizers">
+      <h3 id="appetizers">پیش‌غذا / Appetizers</h3>
+
+      <div class="menu-item"><div class="col fa-name">سالاد شیرازی</div><div class="col en-name">Shirazi Salad</div><div class="col price">90,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">سالاد فصل</div><div class="col en-name">Seasonal Salad</div><div class="col price">120,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">سالاد سزار</div><div class="col en-name">Caesar Salad</div><div class="col price">430,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ماست خیار</div><div class="col en-name">Cucumber Yogurt</div><div class="col price">65,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ماست ساده</div><div class="col en-name">Plain Yogurt</div><div class="col price">52,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ترشی مخلوط</div><div class="col en-name">Mixed Pickles</div><div class="col price">90,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">زیتون سبز</div><div class="col en-name">Green Olives</div><div class="col price">90,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ترشی سیر</div><div class="col en-name">Garlic Pickles</div><div class="col price">90,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">سوپ روز</div><div class="col en-name">Soup of the Day</div><div class="col price">90,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">بورانی اسفناج</div><div class="col en-name">Spinach Borani</div><div class="col price">120,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">بورانی بادمجان</div><div class="col en-name">Eggplant Borani</div><div class="col price">120,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">نودالیت</div><div class="col en-name">Nodalite</div><div class="col price">345,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">سیب‌زمینی سرخ کرده</div><div class="col en-name">Fried Potatoes</div><div class="col price">172,500 Toman/تومان</div></div>
+    </section>
+
+    <!-- نوشیدنی گرم -->
+    <section class="menu-section" aria-labelledby="hot-drinks">
+      <h3 id="hot-drinks">نوشیدنی گرم / Hot Drinks</h3>
+
+      <div class="menu-item"><div class="col fa-name">چای لیوانی</div><div class="col en-name">Glass Tea</div><div class="col price">46,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">نسکافه</div><div class="col en-name">Nescafe</div><div class="col price">69,000 Toman/تومان</div></div>
+    </section>
+
+    <!-- نوشیدنی سرد -->
+    <section class="menu-section" aria-labelledby="cold-drinks">
+      <h3 id="cold-drinks">نوشیدنی سرد / Cold Drinks</h3>
+
+      <div class="menu-item"><div class="col fa-name">نوشابه قوطی</div><div class="col en-name">Canned Soft Drinks</div><div class="col price">35,800 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">آب معدنی کوچک</div><div class="col en-name">Small Mineral Water</div><div class="col price">10,350 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">آب معدنی بزرگ</div><div class="col en-name">Big Mineral Water</div><div class="col price">14,950 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ماءالشعیر لیمویی</div><div class="col en-name">Lemon Beer</div><div class="col price">30,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">ماءالشعیر کلاسیک</div><div class="col en-name">Classic Beer</div><div class="col price">39,000 Toman/تومان</div></div>
+      <div class="menu-item"><div class="col fa-name">دوغ قوطی</div><div class="col en-name">Canned Buttermilk</div><div class="col price">40,900 Toman/تومان</div></div>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact-box" aria-label="contact">
+      <div class="contact-item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><a href="https://www.google.com/maps?q=27.780859,52.117250" target="_blank" rel="noopener">بوشهر، کیلومتر ۵ جاده کنگان - عسلویه</a></div>
+      <div class="contact-item"><a href="https://www.google.com/maps?q=27.780859,52.117250" target="_blank" rel="noopener">Bushehr, km 5 of Kangan-Asaluyeh road</a></div>
+      <div class="contact-item"><i class="fas fa-phone" aria-hidden="true"></i><a href="tel:07732330000">07732330000</a></div>
+      <div class="contact-item"><i class="fab fa-whatsapp" aria-hidden="true"></i><a href="https://wa.me/989937793319" target="_blank" rel="noopener">09937793319</a></div>
+      <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:info@nakhlhotelresort.com">info@nakhlhotelresort.com</a></div>
+      <div class="contact-item"><i class="fab fa-instagram" aria-hidden="true"></i><a href="https://instagram.com/nakhl.hotel.resort" target="_blank" rel="noopener">nakhl.hotel.resort</a></div>
+    </div>
+
+  </div>
 </body>
 </html>
