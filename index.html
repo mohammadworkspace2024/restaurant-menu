@@ -11,169 +11,66 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    :root{
-      --gold: #d4af37;
-      --glass-bg: rgba(255,255,255,0.14);
-      --glass-border: rgba(212,175,55,0.4);
-      --text: #ffffff;
-      --muted: #f0e6b8;
-      --maxw: 900px;
-    }
+:root {
+  --gold: #d4af37;
+  --dark: #111;
+  --light: #f9f9f9;
+  --text: #fff;
+}
 
-    html,body{height:100%;}
-    body {
-      margin: 0;
-      font-family: 'Vazir', Tahoma, sans-serif;
-      background:
-        linear-gradient(135deg, rgba(10,10,10,0.65), rgba(30,30,30,0.05)),
-        url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center;
-      background-size: cover;
-      background-attachment: fixed;
-      color: var(--text);
-      padding: 48px 18px;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-    }
+/* 🌆 ساختار پایه */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Vazir', Tahoma, sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow-x: hidden;
+}
 
-    /* Wrapper center */
-    .container{
-      max-width: var(--maxw);
-      margin: 0 auto 40px auto;
-    }
+body {
+  min-height: 100vh;
+  position: relative;
+  background: none;
+}
 
-    /* Header */
-    .header-box {
-      display:flex;
-      align-items:center;
-      gap:18px;
-      justify-content:center;
-      flex-wrap:wrap;
-      background: var(--glass-bg);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(212,175,55,0.5);
-      border-radius:18px;
-      padding:20px 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.36);
-      text-align:right;
-    }
-    .header-box img{ width:92px; height:auto; filter: drop-shadow(0 0 3px rgba(212,175,55,0.35)); }
-    .header-text h1{ margin:0; font-size:1.7rem; color:var(--text); text-shadow:0 0 6px rgba(212,175,55,0.5); }
-    .header-text h2{ margin:6px 0 0 0; font-size:1rem; color:var(--muted); }
+/* 🖼️ بک‌گراند دسکتاپ */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(135deg, rgba(10,10,10,0.65), rgba(30,30,30,0.05)),
+    url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg.jpg') no-repeat center center / cover;
+  z-index: -1;
+  will-change: transform;
+}
 
-    /* Section card */
-    .menu-section{
-      margin-top:22px;
-      background: var(--glass-bg);
-      border-radius:14px;
-      padding:18px 18px;
-      border:1px solid var(--glass-border);
-      box-shadow: 0 10px 26px rgba(0,0,0,0.32);
-    }
-    .menu-section h3{
-      margin:0 0 12px 0;
-      color:var(--gold);
-      font-size:1.15rem;
-      text-align:center;
-      padding-bottom:10px;
-      border-bottom:1px solid rgba(212,175,55,0.22);
-      text-shadow:0 0 4px rgba(212,175,55,0.2);
-    }
+/* 📱 بک‌گراند مخصوص موبایل */
+@media (max-width: 780px) {
+  body::before {
+    background:
+      linear-gradient(135deg, rgba(10,10,10,0.7), rgba(30,30,30,0.2)),
+      url('https://raw.githubusercontent.com/mohammadworkspace2024/restaurant-menu/main/bg-mobile.jpg') no-repeat center top;
+    background-size: cover;
+    background-attachment: scroll;
+  }
+}
 
-    /* Menu item: three columns */
-    .menu-item{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:10px 6px;
-      margin:6px 0;
-      border-bottom: 1px dashed rgba(255,255,255,0.2);
-      padding-bottom: 5px;
-    }
-
-    .menu-item > .col{
-      flex: 1 1 0%;
-      min-width:0;
-    }
-
-    /* Right: Persian name */
-    .fa-name{
-      text-align:right;
-      font-size:1rem;
-      color:var(--text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Middle: English name */
-    .en-name{
-      text-align:center;
-      font-family: 'Playfair Display', serif;
-      font-size:0.95rem;
-      color:var(--muted);
-      padding:0 8px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    /* Left: Price */
-    .price{
-      text-align:left;
-      font-weight:700;
-      color:var(--gold);
-      min-width:110px;
-      white-space: nowrap;
-      direction:ltr; /* keep numbers LTR */
-      font-size:0.98rem;
-    }
-
-    /* remove any separators — clean look already achieved */
-
-    /* Contact box */
-    .contact-box{
-      margin-top:18px;
-      background: rgba(255,255,255,0.16);
-      border-radius:14px;
-      padding:14px 16px;
-      border:1px solid var(--glass-border);
-      display:block;
-      text-align:right;
-    }
-    .contact-item{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      margin:8px 0;
-    }
-    .contact-item i{ color:var(--gold); min-width:28px; font-size:1.1rem; }
-    .contact-item a{ color:var(--text); text-decoration:none; }
-    .contact-item a:hover{ color:var(--gold); }
-
-    /* Responsive: stack in mobile */
-    @media (max-width:780px){
-      :root{ --maxw: 720px; }
-      .menu-item{ flex-direction:column; align-items:center; text-align:center; padding:8px 6px; }
-      .fa-name{ text-align:center; width:100%; white-space:normal; }
-      .en-name{ width:100%; white-space:normal; margin-top:4px; }
-      .price{ text-align:center; width:100%; margin-top:6px; direction:ltr; }
-      .header-box{ padding:14px; }
-    }
-
-    @media (max-width:420px){
-      body{ padding:20px 10px; }
-      .header-text h1{ font-size:1.4rem; }
-      .en-name{ font-size:0.92rem; }
-    }
-    /* Fix white background issue on mobile blur rendering */
+/* ✨ افکت شیشه‌ای و رفع باگ سفید در موبایل */
 .menu-section::before,
 .header-box::before,
 .contact-box::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25); /* subtle dark overlay behind blur */
+  background: rgba(0, 0, 0, 0.18); /* subtle dark overlay behind blur */
   border-radius: inherit;
   z-index: -1;
 }
@@ -182,13 +79,85 @@
 .header-box,
 .contact-box {
   position: relative;
-  overflow: hidden; /* ensures the pseudo-element stays clipped */
+  overflow: hidden; /* ensures pseudo-element stays clipped */
   background: rgba(255,255,255,0.14);
   border: 1px solid rgba(212,175,55,0.4);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* for Safari mobile */
+  -webkit-backdrop-filter: blur(8px);
 }
-  </style>
+
+/* 📋 چیدمان عمومی */
+.header-box {
+  text-align: center;
+  margin: 0 auto 40px;
+  padding: 20px 25px;
+  border-radius: 22px;
+  max-width: 420px;
+}
+
+.header-box h1 {
+  color: var(--gold);
+  font-size: 32px;
+  margin: 0;
+}
+
+.menu-section {
+  margin: 18px auto;
+  padding: 16px 20px;
+  border-radius: 22px;
+  max-width: 480px;
+}
+
+.menu-section h2 {
+  text-align: center;
+  color: var(--gold);
+  margin: 0 0 12px;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 17px;
+}
+
+.menu-item .fa {
+  color: var(--gold);
+  margin-left: 6px;
+}
+
+.contact-box {
+  text-align: center;
+  padding: 14px 18px;
+  border-radius: 20px;
+  margin: 35px auto 0;
+  max-width: 420px;
+  font-size: 15px;
+  color: #eaeaea;
+}
+
+/* 📱 بهینه‌سازی برای موبایل */
+@media (max-width: 600px) {
+  .menu-section {
+    padding: 14px 16px;
+  }
+
+  .menu-item {
+    font-size: 16px;
+  }
+
+  .header-box h1 {
+    font-size: 26px;
+  }
+
+  .menu-section h2 {
+    font-size: 20px;
+  }
+}
+</style>
 </head>
 <body>
   <div class="container">
